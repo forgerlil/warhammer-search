@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+/*
+--p: 71.9967% 0.123825 62.756393;
+--s: 34.465% 0.029849 199.19444;
+--a: 42.6213% 0.074405 224.389184;
+--n: 16.5109% 0.015743 326.261446;
+--b1: 21.6758% 0.023072 329.708637;
+--bc: 72.3547% 0.092794 79.129387;
+--in: 79.4902% 0.063869 184.558367;
+--su: 74.7224% 0.072456 131.116276;
+--wa: 88.1503% 0.140812 87.722413;
+--er: 77.3187% 0.12822 31.871922;
+*/
+
+:root {
+  --fallback-title-bar-height: 60px;
+  font-family: 'Mulish', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.draggable {
+  /* Pre-fix app-region during standardization process */
+  -webkit-app-region: drag;
+}
+
+.nonDraggable {
+  /* Pre-fix app-region during standardization process */
+  -webkit-app-region: no-drag;
+}
+
+body {
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 10px grey;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  position: fixed;
+  right: -40px;
+  background: rgb(16, 87, 109);
+  border-radius: 10px;
+}
+
+#titleBarContainer {
+  position: fixed;
+  z-index: 10;
+  top: env(titlebar-area-y, 0);
+  height: env(titlebar-area-height, var(--fallback-title-bar-height));
+  width: 100%;
+  background-color: rgb(42, 32, 41);
+}
+
+#titleBar {
+  position: absolute;
+  top: 0;
+  display: flex;
+  user-select: none;
+  height: 100%;
+  left: env(titlebar-area-x, 0);
+  width: env(titlebar-area-width, 100%);
+
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+}
+
+#titleBar > span {
+  margin: auto;
+  padding: 0 1em;
+}
+
+.small-caps {
+  font-variant: small-caps;
+}
+
+#mainContent {
+  /* position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: env(titlebar-area-height, var(--fallback-title-bar-height));
+  overflow-y: scroll; */
+  margin-top: env(titlebar-area-height, var(--fallback-title-bar-height));
+}

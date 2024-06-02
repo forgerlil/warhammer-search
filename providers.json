@@ -1,0 +1,13 @@
+[
+  { "name": "PK-Pro", "url": "https://www.pk-pro.de/" },
+  { "name": "Kutami", "url": "https://kutami.de/" },
+  { "name": "Fantasy Welt", "url": "https://www.fantasywelt.de/" },
+  { "name": "Trading Goblin", "url": "https://www.trading-goblin.de/" },
+  { "name": "Wayland Games", "url": "https://www.trading-goblin.de/" },
+  {
+    "name": "Battlefield Berlin",
+    "url": "https://shop.battlefield-berlin.de/"
+  },
+  { "name": "Funtainment Berlin", "url": "https://shop-funtainment.de/" },
+  { "name": "Taschengelddieb", "url": "https://taschengelddieb.de/" }
+]

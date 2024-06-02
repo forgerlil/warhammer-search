@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html data-theme="coffee">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Warhammer Search</title>
+  </head>
+  <body>
+    <div id="titleBarContainer">
+      <div id="titleBar" class="draggable">
+        <img
+          src="../warhammer_lili_search.png"
+          alt="Warhammer Lili Search logo"
+        />
+        <span class="draggable small-caps">Warhammer Search</span>
+      </div>
+    </div>
+    <div id="mainContent">
+      <h1 class="text-error small-caps text-3xl text-center mt-20 my-8">
+        Welcome to the Warhammer Search
+      </h1>
+      <p class="text-center text-secondary-content mb-2">
+        Providers currently searched are
+      </p>
+      <div
+        id="provider-list"
+        class="max-w-[600px] mx-auto flex flex-wrap justify-center gap-2 mb-10"
+      ></div>
+      <form class="flex justify-center gap-4 mb-12">
+        <input
+          type="text"
+          placeholder="Search on all providers"
+          class="input input-bordered input-primary text-secondary-content w-full max-w-xs"
+        />
+        <button class="btn btn-primary">Search</button>
+      </form>
+      <button id="logger-clear" class="bg-info text-black my-4 p-4">x</button>
+      <p id="logger" class="text-center bg-info text-black my-4 p-4"></p>
+      <section
+        id="results"
+        class="max-w-[600px] mx-auto px-4 flex flex-col gap-4 mb-10 w-full"
+      ></section>
+    </div>
+    <dialog class="modal">
+      <div class="modal-box">
+        <h3 id="modal-title" class="font-bold text-lg"></h3>
+        <p id="modal-msg" class="py-4"></p>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
