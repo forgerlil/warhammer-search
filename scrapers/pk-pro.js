@@ -1,20 +1,13 @@
 const puppeteer = require('puppeteer');
 
-module.exports = async (url, query) => {
+module.exports = async (query) => {
   let browser;
   try {
-    console.log(url, query);
     const formatQuery = query.trim().toLowerCase().replaceAll(' ', '+');
     browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(`https://www.pk-pro.de/search/?qs=${formatQuery}`);
     await page.setViewport({ width: 1080, height: 1024 });
-
-    // const inputId = '#search-header-mobile-top';
-    // await page.waitForSelector(inputId);
-    // const input = await page.$(inputId);
-    // await page.$eval(inputId, (el, query) => (el.value = query), query);
-    // await input.evaluate((el) => el.nextElementSibling.children[0]?.click());
 
     let itemUrl = page.url();
 
@@ -36,7 +29,6 @@ module.exports = async (url, query) => {
     itemUrl = page.url();
     const titleEl = await page.$('h1');
     const itemTitle = await titleEl.evaluate((el) => el.innerHTML);
-    // console.log(itemTitle);
 
     const img = await page.$('.product-image');
     const imgSrc = await img.evaluate((el) => ({ src: el.src, alt: el.alt }));

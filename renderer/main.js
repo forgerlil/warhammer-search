@@ -1,15 +1,5 @@
 import init from './init.js';
 import providerData from '../providers.json' assert { type: 'json' };
-import * as sanitize from '../utils/sanitize.js';
-
-const logEl = document.getElementById('logger');
-document.getElementById('logger-clear').addEventListener('click', () => {
-  logEl.textContent = '';
-});
-
-const log = (logged) => {
-  logEl.innerHTML += `${logged}<br>`;
-};
 
 const providers = async () => providerData;
 
@@ -19,8 +9,6 @@ const search = async (e) => {
   e.preventDefault();
   const input = e.target.children[0].value.trim();
   const results = document.querySelector('#results');
-
-  // console.log(sanitize(input));
 
   if (!input) {
     const dialog = document.querySelector('dialog');
@@ -35,11 +23,7 @@ const search = async (e) => {
   results.innerHTML =
     '<span class="loading loading-dots loading-lg mx-auto"></span>';
 
-  log(input);
-
   const data = await window.scrape.search(input);
-  // const data = await providers();
-  console.log('what renderer received', data);
 
   results.innerHTML = '';
   data.forEach((provider) => {
@@ -71,11 +55,9 @@ const search = async (e) => {
     cardTitle.textContent = provider.name;
 
     const itemTitle = document.createElement('p');
-    // TODO: Swap this value for scraped title from platform
     itemTitle.textContent = provider.itemTitle;
 
     const itemPrice = document.createElement('p');
-    // TODO: Swap this value for scraped price from platform
     itemPrice.textContent = `€${provider.price}`;
 
     figure.appendChild(img);
